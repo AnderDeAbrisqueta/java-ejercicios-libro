@@ -14,25 +14,25 @@ public class Ejercicio19NumeroInsertado {
    */
   public static void main(String args[]) {
     //Construcción del array original
-    int[] numeroEnteroAletorio = new int[11];
+    int[] numeroEnteroAletorio = new int[12];
 
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 12; i++) {
       numeroEnteroAletorio[i] = (int) (Math.random() * 201);
     }
 
     System.out.println("Array Original");
 
-    System.out.println("\n┌────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐");
+    System.out.println("\n┌────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐");
     System.out.print("│ Índice ");
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 12; i++) {
       System.out.printf("│%5d", i);
     }
-    System.out.println("│\n├────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤");
+    System.out.println("│\n├────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤");
     System.out.print("│ Valor  ");
     for (int n : numeroEnteroAletorio) {
       System.out.printf("│%5d", n);
     }
-    System.out.println("│\n└────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘");
+    System.out.println("│\n└────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘");
 
     Scanner s = new Scanner(System.in);
     
@@ -45,9 +45,9 @@ public class Ejercicio19NumeroInsertado {
     System.out.println("");
     
     //Inserción del número
-    int[] arrayResultado = new int[11];
+    int[] arrayResultado = new int[12];
     
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 12; i++) {
       arrayResultado[i] = numeroEnteroAletorio[i];
       
       if (i == posicionInsertar) {
@@ -61,17 +61,17 @@ public class Ejercicio19NumeroInsertado {
     
     System.out.println("Array Resultado");
 
-    System.out.println("\n┌────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐");
+    System.out.println("\n┌────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐");
     System.out.print("│ Índice ");
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 12; i++) {
       System.out.printf("│%5d", i);
     }
-    System.out.println("│\n├────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤");
+    System.out.println("│\n├────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤");
     System.out.print("│ Valor  ");
     for (int a : arrayResultado) {
       System.out.printf("│%5d", a);
     }
-    System.out.println("│\n└────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘");
+    System.out.println("│\n└────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘");
 
     
   }
