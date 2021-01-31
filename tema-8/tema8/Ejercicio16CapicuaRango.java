@@ -11,18 +11,14 @@ import misfunciones.Matematicas;
  *
  * @author Ander De Abrisqueta Rangel
  */
-public class Ejercicio15PrimosRango {
-  /**
-   * Función que muestra los números primos que hay en un rango
-   * 
-   * @param x número inferior del rango.
-   * @param y número superior del rango.
-   */
-  public static void primosRango(int x, int y) {
+public class Ejercicio16CapicuaRango {
+
+  public static void numerosCapicuas(int x, int y) {
     for (int i = x; i < y; i++) {
-      if (Matematicas.esPrimo(i)) {
+      if (Matematicas.esCapicua(i)) {
         System.out.print(i + " ");
       }
     }
   }
+
 }
