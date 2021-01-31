@@ -13,6 +13,12 @@ import misfunciones.Matematicas;
  */
 public class Ejercicio16CapicuaRango {
 
+  /**
+   * Función que muestra los números capicúa que hay en un rango.
+   *
+   * @param x número inferior del rango.
+   * @param y número superior del rango.
+   */
   public static void numerosCapicuas(int x, int y) {
     for (int i = x; i < y; i++) {
       if (Matematicas.esCapicua(i)) {
