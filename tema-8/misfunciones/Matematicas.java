@@ -270,5 +270,30 @@ public class Matematicas {
   public static long juntaNumeros(long x, long y) {
     return pegaPorDetras(x, y);
   }
-  
+//  /**
+//   * Función que calcula una cantidad n de números aleatorios en un rango determinado.
+//   * 
+//   * @param min número mínimo del rango.
+//   * @param max número máximo del rango.
+//   * @param n cantidad de números aleatorios.
+//   */
+//  public static int numerosAleatorios(int min, int max, int n) {
+//    int[] numeros = new int[n];
+//    int i = 0;
+//    for (i = 0; i < n; i++) {
+//      numeros[i] = (int) ((Math.random() * (max - min) + 1) + min);
+//      
+//    }
+//    return numeros[i];
+//  }
+//  
+//  /**
+//   * Función que calcula un número aleatorio.
+//   * 
+//   * @param min número mínimo del rango.
+//   * @param max número máximo del rango.
+//   */
+//  public static void numeroAleatorio(long min, long max) {
+//    System.out.print((int) ((Math.random() * (max - min) + 1) + min));
+//  }
 }
