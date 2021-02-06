@@ -11,12 +11,22 @@ package misfunciones;
  */
 public class ArrayUnidimensional {
 
+  /**
+   * Función que pinta una array.
+   *
+   * @param arrayEntrada Array que se quiere pintar.
+   */
   public static void pintaArray(int arrayEntrada[]) {
     for (int numero : arrayEntrada) {
       System.out.print(numero + " ");
     }
   }
 
+  /**
+   * Función que dibuja la tabla del array con los índices.
+   *
+   * @param arrayEntrada array inicial de entrada.
+   */
   public static void pintaArrayConIndice(int arrayEntrada[]) {
     final int N = arrayEntrada.length;
     System.out.print("┌────────┬");
@@ -50,46 +60,203 @@ public class ArrayUnidimensional {
 
   }
 
+  /**
+   * Función que genera un array con números aleatorios.
+   *
+   * @param min número mínimo del rango.
+   * @param max número máximo del rango.
+   * @param n cantidad de números aleatorios.
+   * @return array de tamaño n con números aleatorios en el rango introducido.
+   */
   public static int[] generaArrayInt(int min, int max, int n) {
     int[] arrayResultado = new int[n];
-    int i = 0;
-    for (i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
       arrayResultado[i] = (int) (Math.random() * ((max - min) + 1) + min);
     }
     return arrayResultado;
   }
 
-  public static int[] filtraPrimos(int[] n) {
-    int contador = 0;
-    for (int i : n) {
-      if (Matematicas.esPrimo(i)) {
-        contador++;
+//  public static int[] filtraPrimos(int[] n) {
+//    int j = 0;
+//    for (int i : n) {
+//      if (Matematicas.esPrimo(i)) {
+//        j++;
+//      }
+//    }
+//    int[] arrayResultado = extraePrimos(n);
+//    int[] arrayAuxiliar = {-1};
+//    return j == 0 ? arrayAuxiliar :  arrayResultado;
+//  }
+  /**
+   * Función que extrae los números primos de un array.
+   *
+   * @param n array original
+   * @return array con los números primos extraidos del array original.
+   */
+  public static int[] extraePrimos(int[] n) {
+    int[] arrayAuxiliar = new int[n.length];
+    int j = 0;
+    for (int i = 0; i < n.length - 1; i++) {
+      if (Matematicas.esPrimo(n[i])) {
+        arrayAuxiliar[j++] = n[i];
       }
     }
-    int[] arrayFinal = extraePrimos(n);
-    int[] resultado = {-1};
-    if (contador == 0) {
-      return resultado;
-    } else {
-      return arrayFinal;
+    int[] arrayResultado = new int[j];
+    for (int i = 0; i < j; i++) {
+      arrayResultado[i] = arrayAuxiliar[i];
     }
+    return arrayResultado;
   }
 
-  public static int[] extraePrimos(int[] n) {
-    int[] aux = new int[n.length];
-    int contadorAux = 0;
-    int digito = 0;
-    for (int i = 0; i < n.length - 1; i++) {
-      digito = n[i];
-      if (Matematicas.esPrimo(digito) == true) {
-        aux[contadorAux++] = n[i];
+  /**
+   * Función que devuelve el número menor de un array.
+   *
+   * @param arrayOriginal array que se va a introducir.
+   * @return el número menor del array.
+   */
+  public static long minimoArrayInt(int[] arrayOriginal) {
+    long numeroMinimo = Long.MAX_VALUE;
+    for (int numero : arrayOriginal) {
+      if (numero < numeroMinimo) {
+        numeroMinimo = numero;
+      }
+
+    }
+    return numeroMinimo;
+  }
+
+  /**
+   * Función que devuelve el número mayor de un array.
+   *
+   * @param arrayOriginal array que se va a introducir.
+   * @return el número mayor del array.
+   */
+  public static long maximoArrayInt(int[] arrayOriginal) {
+    long numeroMaximo = Long.MIN_VALUE;
+    for (int numero : arrayOriginal) {
+      if (numero > numeroMaximo) {
+        numeroMaximo = numero;
+      }
+
+    }
+    return numeroMaximo;
+  }
+
+  /**
+   * Función que calcula la media de los números de un array.
+   *
+   * @param arrayOriginal array que se le quiere determinar la media.
+   * @return la media del array.
+   */
+  public static double mediaArrayInt(int[] arrayOriginal) {
+    int j = 0;
+    int sumaNumero = 0;
+    for (int numero : arrayOriginal) {
+      sumaNumero += numero;
+      j++;
+    }
+
+    return (double) sumaNumero / j;
+  }
+
+  /**
+   * Función que que determina si un número se encuentra en un array o no.
+   *
+   * @param arrayOriginal array que se introduce para verificar si existe el
+   * número que se está buscando.
+   * @param n número que se está buscando.
+   * @return devuelve verdadero o falso dependiendo si está o no el número.
+   */
+  public static boolean estaEnArrayInt(int[] arrayOriginal, int n) {
+    for (int numero : arrayOriginal) {
+      if (n == numero) {
+        return true;
       }
     }
-    int[] resultado = new int[contadorAux];
-    for (int i = 0; i < contadorAux; i++) {
-      resultado[i] = aux[i];
+
+    return false;
+  }
+
+  /**
+   * Función que busca un número en un array y devuelve la posición (el índice)
+   * en la que se encuentra.
+   *
+   * @param arrayOriginal array donde se busca el número de interés.
+   * @param n número que se busca dentro del array.
+   * @return la posición del número si se encuentra en el array. Si no está
+   * devuelve -1.
+   */
+  public static int posicionEnArray(int[] arrayOriginal, int n) {
+    for (int i = 0; i < arrayOriginal.length; i++) {
+      if (arrayOriginal[i] == n) {
+        return i;
+      }
     }
-    return resultado;
+    return -1;
+  }
+
+  /**
+   * Función que le da la vuelta a un array.
+   *
+   * @param arrayOriginal array al que se le quiere voltear.
+   * @return array volteado.
+   */
+  public static int[] volteaArrayInt(int[] arrayOriginal) {
+    int[] arrayResultado = new int[arrayOriginal.length];
+    int j = arrayOriginal.length;
+    for (int i = 0; i < arrayOriginal.length; i++) {
+      arrayResultado[--j] = arrayOriginal[i];
+    }
+
+    return arrayResultado;
+  }
+
+  /**
+   * Función que rota n posiciones a la derecha los números de un array.
+   *
+   * @param arrayOriginal array al que se quiere rotar a la derecha los
+   * elementos del mismo.
+   * @param n número de veces que se quieren rotar.
+   * @return el array rotado n veces a la derecha.
+   */
+  public static int[] rotaDerechaArrayInt(int[] arrayOriginal, int n) {
+    int[] arrayResultado = new int[arrayOriginal.length];
+    int j = arrayOriginal.length - n;
+    int k = 0;
+    for (int i = 0; i < arrayOriginal.length; i++) {
+      if (i < j) {
+        arrayResultado[i + n] = arrayOriginal[i];
+      }
+      if (i >= j) {
+        arrayResultado[k++] = arrayOriginal[j++];
+      }
+    }
+    return arrayResultado;
+  }
+  
+  /**
+   * Función que rota n posiciones a la izquierda los números de un array.
+   * 
+   * @param arrayOriginal array al que se quiere rotar a la izquierda los
+   * elementos del mismo. 
+   * @param n número de veces que se quieren rotar.
+   * @return el array rotado n veces a la izquierda.
+   */
+  public static int[] rotaIzquierdaArrayInt(int[] arrayOriginal, int n) {
+    int[] arrayResultado = new int[arrayOriginal.length];
+    int j = arrayOriginal.length - n;
+    int k = 0;
+    for (int i = 0; i < arrayOriginal.length; i++) {
+      if (i < n) {
+        arrayResultado[j++] = arrayOriginal[i];
+      }
+
+      if (i >= n) {
+        arrayResultado[k++] = arrayOriginal[n++];
+      }
+
+    }
+    return arrayResultado;
   }
 
 }
