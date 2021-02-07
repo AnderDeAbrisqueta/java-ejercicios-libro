@@ -59,6 +59,44 @@ public class ArrayUnidimensional {
     System.out.print("─────┘\n");
 
   }
+  
+   /**
+   * Función que dibuja la tabla del array con los índices.
+   *
+   * @param arrayEntrada array inicial de entrada.
+   */
+  public static void pintaArrayConIndice(String arrayEntrada[]) {
+    final int N = arrayEntrada.length;
+    System.out.print("┌────────┬");
+
+    for (int i = 1; i < N; i++) {
+      System.out.print("─────┬");
+    }
+    System.out.print("─────┐\n");
+    System.out.print("│ Índice ");
+    for (int i = 0; i < N; i++) {
+      System.out.printf("│%5d", i);
+    }
+    System.out.println("│");
+    System.out.print("├────────┼");
+    for (int i = 1; i < N; i++) {
+      System.out.print("─────┼");
+    }
+    System.out.print("─────┤\n");
+    System.out.print("│Palabra ");
+
+    for (int i = 0; i < N; i++) {
+      System.out.printf("│%5s", arrayEntrada[i]);
+    }
+
+    System.out.println("│");
+    System.out.print("└────────┴");
+    for (int i = 1; i < N; i++) {
+      System.out.print("─────┴");
+    }
+    System.out.print("─────┘\n");
+
+  }
 
   /**
    * Función que genera un array con números aleatorios.
@@ -167,6 +205,23 @@ public class ArrayUnidimensional {
   }
 
   /**
+   * Función que que determina si una palabra se encuentra en un array o no.
+   *
+   * @param arrayOriginal array que se introduce para verificar si existe la
+   * palabra que se está buscando.
+   * @param n palbra que se está buscando.
+   * @return devuelve verdadero o falso dependiendo si está o no la palabra.
+   */
+  public static boolean estaEnArrayInt(String[] arrayOriginal, String n) {
+    for (String palabra : arrayOriginal) {
+      if (palabra != null && palabra.equals(n)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * Función que busca un número en un array y devuelve la posición (el índice)
    * en la que se encuentra.
    *
@@ -247,13 +302,14 @@ public class ArrayUnidimensional {
     }
     return arrayResultado;
   }
-  
+
   /**
    * Función que pinta una línea con un caracter.
-   * 
+   *
    * @param caracter de preferencia para realizar la línea. Debe colocarse entre
    * comillas simples (' ').
-   * @param longitud es la cantidad de caracteres que se quieren colocar en la línea.
+   * @param longitud es la cantidad de caracteres que se quieren colocar en la
+   * línea.
    * @return una línea con el caracter de preferencia y la longitud escogida.
    */
   public static String pintaLineas(char caracter, int longitud) {
@@ -263,4 +319,74 @@ public class ArrayUnidimensional {
     }
     return linea;
   }
+
+  /**
+   * Función que comvierte un array en String.
+   *
+   * @param a array que se quiere convertir en string.
+   * @return un string de con los elementos array.
+   */
+  public static String convierteArrayEnString(int[] a) {
+    String numero = "";
+    for (int i = 0; i < a.length; i++) {
+      numero += a[i];
+    }
+    return numero;
+  }
+
+  /**
+   * Función que concatena arrays.
+   *
+   * @param a primer array que se quiere concatenar.
+   * @param b segundo array que se quiere concatenar.
+   * @return array concatenado.
+   */
+  public static int[] concatena(int[] a, int[] b) {
+    int[] arrayResultado = new int[a.length + b.length];
+    int j = 0;
+
+    for (int i = 0; i < a.length; i++) {
+      arrayResultado[i] = a[i];
+      j++;
+    }
+
+    for (int i = 0; i < b.length; i++) {
+      arrayResultado[j++] = b[i];
+    }
+    return arrayResultado;
+  }
+
+  /**
+   * Función que devuelve un número del array de forma aleatoria.
+   *
+   * @param a array de donde se quiere escoger el número de forma aleatoria.
+   * @return un númenro del array escogido aleatoriamente.
+   */
+  public static int aleatorioDeArray(int[] a) {
+    int numeroEscogidoAzar = 0;
+    int indice = (int) (Math.random() * a.length);
+    for (int i = 0; i < a.length; i++) {
+      if (i == indice) {
+        numeroEscogidoAzar = a[i];
+      }
+    }
+    return numeroEscogidoAzar;
+  }
+
+  /**
+   * Quita los elementos nulos consecutivos por el final.
+   *
+   * @param s array que puede tener nulos al final
+   * @return array sin nulos
+   */
+  public static String[] compacta(String[] s) {
+    int i = s.length - 1;
+    while (s[i] == null) {
+      i--;
+    }
+    String[] resultado = new String[i + 1];
+    System.arraycopy(s, 0, resultado, 0, i + 1);
+    return resultado;
+  }
+
 }

@@ -243,15 +243,15 @@ public class Matematicas {
   public static long pegaPorDelante(long numero, long d) {
     return (d * (long) potencia(10, digitos(numero)) + numero);
   }
-  
+
   /**
-   * Función que toma como parámetros las posiciones inicial y final dentro de 
+   * Función que toma como parámetros las posiciones inicial y final dentro de
    * un número y devuelve el trozo correspondiente.
-   * 
+   *
    * @param numero al del que se quiere un trozo
-   * @param x índice izquierdo del trozo. Se empieza contando por el 0 y de 
+   * @param x índice izquierdo del trozo. Se empieza contando por el 0 y de
    * izquierda a derecha.
-   * @param y índice derecho del trozo. Se empieza contando por el 0 y de 
+   * @param y índice derecho del trozo. Se empieza contando por el 0 y de
    * izquierda a derecha.
    * @return el trozo de numero.
    */
@@ -259,10 +259,10 @@ public class Matematicas {
     long numeroCortadoDelante = quitarPorDelante(numero, x);
     return (long) (numeroCortadoDelante / potencia(10, digitos(numero) - (y + 1)));
   }
-  
+
   /**
    * Función que pega dos números para formar uno.
-   * 
+   *
    * @param x número que va por la izquierda.
    * @param y número que va por la derecha.
    * @return un número nuevo, resultado de juntar los números xy.
@@ -270,30 +270,4 @@ public class Matematicas {
   public static long juntaNumeros(long x, long y) {
     return pegaPorDetras(x, y);
   }
-//  /**
-//   * Función que calcula una cantidad n de números aleatorios en un rango determinado.
-//   * 
-//   * @param min número mínimo del rango.
-//   * @param max número máximo del rango.
-//   * @param n cantidad de números aleatorios.
-//   */
-//  public static int numerosAleatorios(int min, int max, int n) {
-//    int[] numeros = new int[n];
-//    int i = 0;
-//    for (i = 0; i < n; i++) {
-//      numeros[i] = (int) ((Math.random() * (max - min) + 1) + min);
-//      
-//    }
-//    return numeros[i];
-//  }
-//  
-//  /**
-//   * Función que calcula un número aleatorio.
-//   * 
-//   * @param min número mínimo del rango.
-//   * @param max número máximo del rango.
-//   */
-//  public static void numeroAleatorio(long min, long max) {
-//    System.out.print((int) ((Math.random() * (max - min) + 1) + min));
-//  }
 }
