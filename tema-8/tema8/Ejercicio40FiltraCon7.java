@@ -23,7 +23,14 @@ public class Ejercicio40FiltraCon7 {
     System.out.println("Array Resultado");
     ArrayUnidimensional.pintaArrayConIndice(filtraCon7(arrayOriginal));
   }
-
+  
+  /**
+   * Función que filtra los dígitos 7 de un número, mostrando un nuevo array con 
+   * los número que contienen un 7.
+   * 
+   * @param n array de donde se quieren extraer los números que contienen 7.
+   * @return un array con los números que contienen 7.
+   */
   public static int[] filtraCon7(int[] n) {
     int[] arrayAuxiliar = new int[n.length];
     int j = 0;
