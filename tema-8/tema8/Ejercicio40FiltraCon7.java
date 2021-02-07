@@ -6,13 +6,12 @@
 package tema8;
 
 import misfunciones.ArrayUnidimensional;
-import misfunciones.Matematicas;
 
 /**
  *
  * @author Ander De Abrisqueta Rangel
  */
-public class Ejercicio38FiltraCapicuas {
+public class Ejercicio40FiltraCon7 {
 
   /**
    * @param args the command line arguments
@@ -22,21 +21,18 @@ public class Ejercicio38FiltraCapicuas {
     int[] arrayOriginal = ArrayUnidimensional.generaArrayInt(0, 200, 20);
     ArrayUnidimensional.pintaArrayConIndice(arrayOriginal);
     System.out.println("Array Resultado");
-    ArrayUnidimensional.pintaArrayConIndice(filtraCapicuas(arrayOriginal));
+    ArrayUnidimensional.pintaArrayConIndice(filtraCon7(arrayOriginal));
   }
 
-  /**
-   * Función que extrae los número capicúas de un array.
-   *
-   * @param n número del elemento del array.
-   * @return un array con los número capicúas.
-   */
-  public static int[] filtraCapicuas(int[] n) {
+  public static int[] filtraCon7(int[] n) {
     int[] arrayAuxiliar = new int[n.length];
     int j = 0;
     for (int i = 0; i < n.length; i++) {
-      if (Matematicas.esCapicua(n[i])) {
-        arrayAuxiliar[j++] = n[i];
+      int k = misfunciones.Matematicas.digitos(n[i]);
+      for (int l = 0; l < k; l++) {
+        if (misfunciones.Matematicas.digitoN(n[i], l) == 7) {
+          arrayAuxiliar[j++] = n[i];
+        }
       }
     }
     int[] arrayResultado = new int[j];

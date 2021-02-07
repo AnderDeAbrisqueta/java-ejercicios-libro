@@ -76,27 +76,16 @@ public class ArrayUnidimensional {
     return arrayResultado;
   }
 
-//  public static int[] filtraPrimos(int[] n) {
-//    int j = 0;
-//    for (int i : n) {
-//      if (Matematicas.esPrimo(i)) {
-//        j++;
-//      }
-//    }
-//    int[] arrayResultado = extraePrimos(n);
-//    int[] arrayAuxiliar = {-1};
-//    return j == 0 ? arrayAuxiliar :  arrayResultado;
-//  }
   /**
    * Función que extrae los números primos de un array.
    *
-   * @param n array original
+   * @param n array original.
    * @return array con los números primos extraidos del array original.
    */
   public static int[] extraePrimos(int[] n) {
     int[] arrayAuxiliar = new int[n.length];
     int j = 0;
-    for (int i = 0; i < n.length - 1; i++) {
+    for (int i = 0; i < n.length; i++) {
       if (Matematicas.esPrimo(n[i])) {
         arrayAuxiliar[j++] = n[i];
       }
@@ -233,12 +222,12 @@ public class ArrayUnidimensional {
     }
     return arrayResultado;
   }
-  
+
   /**
    * Función que rota n posiciones a la izquierda los números de un array.
-   * 
+   *
    * @param arrayOriginal array al que se quiere rotar a la izquierda los
-   * elementos del mismo. 
+   * elementos del mismo.
    * @param n número de veces que se quieren rotar.
    * @return el array rotado n veces a la izquierda.
    */
