@@ -247,5 +247,20 @@ public class ArrayUnidimensional {
     }
     return arrayResultado;
   }
-
+  
+  /**
+   * Función que pinta una línea con un caracter.
+   * 
+   * @param caracter de preferencia para realizar la línea. Debe colocarse entre
+   * comillas simples (' ').
+   * @param longitud es la cantidad de caracteres que se quieren colocar en la línea.
+   * @return una línea con el caracter de preferencia y la longitud escogida.
+   */
+  public static String pintaLineas(char caracter, int longitud) {
+    String linea = "";
+    for (int i = 0; i < longitud; i++) {
+      linea += caracter;
+    }
+    return linea;
+  }
 }
