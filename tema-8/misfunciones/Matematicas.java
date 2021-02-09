@@ -270,4 +270,47 @@ public class Matematicas {
   public static long juntaNumeros(long x, long y) {
     return pegaPorDetras(x, y);
   }
+
+  /**
+   * Función que quita los dígitos repetidos de un número.
+   *
+   * @param n número al que se le quieren quitar los dígitos repetidos.
+   * @return un número sin dígitos repetidos.
+   */
+  public static long quitaRepetidos(long n) {
+
+    int[] arrayAuxiliar = new int[digitos(n)];
+    for (int i = 0; i < digitos(n); i++) {
+      arrayAuxiliar[i] = digitoN(n, i);
+    }
+    String[] arrayResultado = new String[digitos(n)];
+    for (int i = 0; i < digitos(n); i++) {
+      arrayResultado[i] = "" + arrayAuxiliar[i];
+    }
+
+    String numeroSinRepetidos = ArrayUnidimensional.convierteArrayEnString(ArrayUnidimensional.sinRepetir(arrayResultado));
+    long numero = Long.parseLong(numeroSinRepetidos);
+    return numero;
+  }
+
+  /**
+   * Función que quita los dígitos repetidos de un número.
+   *
+   * @param n número al que se le quieren quitar los dígitos repetidos.
+   * @return un número sin dígitos repetidos.
+   */
+  public static int quitaRepetidos(int n) {
+    int[] arrayAuxiliar = new int[digitos(n)];
+    for (int i = 0; i < digitos(n); i++) {
+      arrayAuxiliar[i] = digitoN(n, i);
+    }
+    String[] arrayResultado = new String[digitos(n)];
+    for (int i = 0; i < digitos(n); i++) {
+      arrayResultado[i] = "" + arrayAuxiliar[i];
+    }
+
+    String numeroSinRepetidos = ArrayUnidimensional.convierteArrayEnString(ArrayUnidimensional.sinRepetir(arrayResultado));
+    int numero = Integer.parseInt(numeroSinRepetidos);
+    return numero;
+  }
 }

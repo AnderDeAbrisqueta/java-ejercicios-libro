@@ -59,8 +59,8 @@ public class ArrayUnidimensional {
     System.out.print("─────┘\n");
 
   }
-  
-   /**
+
+  /**
    * Función que dibuja la tabla del array con los índices.
    *
    * @param arrayEntrada array inicial de entrada.
@@ -256,6 +256,22 @@ public class ArrayUnidimensional {
   }
 
   /**
+   * Función que le da la vuelta a un array.
+   *
+   * @param arrayOriginal array al que se le quiere voltear.
+   * @return array volteado.
+   */
+  public static String[] volteaArrayInt(String[] arrayOriginal) {
+    String[] arrayResultado = new String[arrayOriginal.length];
+    int j = arrayOriginal.length;
+    for (int i = 0; i < arrayOriginal.length; i++) {
+      arrayResultado[--j] = arrayOriginal[i];
+    }
+
+    return arrayResultado;
+  }
+
+  /**
    * Función que rota n posiciones a la derecha los números de un array.
    *
    * @param arrayOriginal array al que se quiere rotar a la derecha los
@@ -335,6 +351,20 @@ public class ArrayUnidimensional {
   }
 
   /**
+   * Función que comvierte un array en String.
+   *
+   * @param a array que se quiere convertir en string.
+   * @return un string de con los elementos array.
+   */
+  public static String convierteArrayEnString(String[] a) {
+    String numero = "";
+    for (int i = 0; i < a.length; i++) {
+      numero += a[i];
+    }
+    return numero;
+  }
+
+  /**
    * Función que concatena arrays.
    *
    * @param a primer array que se quiere concatenar.
@@ -387,6 +417,125 @@ public class ArrayUnidimensional {
     String[] resultado = new String[i + 1];
     System.arraycopy(s, 0, resultado, 0, i + 1);
     return resultado;
+  }
+
+  /**
+   * Función que elimina las repeticiones de un array (String).
+   *
+   * @param s array al que se le quieren eliminar las repeticiones.
+   * @return el array sin repeticiones.
+   */
+  public static String[] sinRepetir(String[] s) {
+    String[] vacio = {};
+    if (s.length == 0) {
+      return vacio;
+    }
+
+    String aux[] = new String[s.length];
+    int i = 0;
+
+    for (String palabra : s) {
+      if (!misfunciones.ArrayUnidimensional.estaEnArrayInt(aux, palabra)) {
+        aux[i++] = palabra;
+      }
+    }
+
+    String[] arrayResultado = new String[i];
+
+    for (int j = 0; j < i; j++) {
+      arrayResultado[j] = aux[j];
+    }
+
+    return arrayResultado;
+  }
+
+  /**
+   * Función que elimina las repeticiones de un array (Int).
+   *
+   * @param s array al que se le quieren eliminar las repeticiones.
+   * @return el array sin repeticiones.
+   */
+  public static int[] quitaRepetidos(int[] s) {
+    int[] vacio = {};
+    if (s.length == 0) {
+      return vacio;
+    }
+
+    int aux[] = new int[s.length];
+    int i = 0;
+
+    for (int numero : s) {
+      if (!misfunciones.ArrayUnidimensional.estaEnArrayInt(aux, numero)) {
+        aux[i++] = numero;
+      }
+    }
+
+    int[] arrayResultado = new int[i];
+
+    for (int j = 0; j < i; j++) {
+      arrayResultado[j] = aux[j];
+    }
+
+    return arrayResultado;
+  }
+
+  /**
+   * Función que toma un trozo de array.
+   *
+   * @param arrayOriginal array del que se quiere tomar un trozo.
+   * @param x índice inicial.
+   * @param y índice final.
+   * @return el trozo del array.
+   */
+  public static int[] trozoDeArray(int[] arrayOriginal, int x, int y) {
+    int[] arrayAuxiliar = new int[arrayOriginal.length];
+    int j = 0;
+
+    for (int i = x; i <= y; i++) {
+      arrayAuxiliar[j++] = arrayOriginal[i];
+    }
+
+    int[] arrayResultado = new int[j];
+    for (int i = 0; i < j; i++) {
+      arrayResultado[i] = arrayAuxiliar[i];
+    }
+    return arrayResultado;
+  }
+
+  /**
+   * Función que determina la cantidad de veces que se repite un mismo dígito
+   * contiguo en un número.
+   *
+   * @param a array que contiene el número a evaluar.
+   * @return la cantidad de veces que se repite un dígito contiguo en un número.
+   */
+  public static int repeticionesDelPrimero(int[] a) {
+    int repeticiones = 0;
+    int i = 0;
+    while ((i < a.length) && (a[0] == a[i])) {
+      repeticiones++;
+      i++;
+    }
+    return repeticiones;
+  }
+
+  /**
+   * Función que devuelve un array eliminando los primeros elementos similares.
+   *
+   * @param a array original.
+   * @return un array sin los primeros elementos comunes.
+   */
+  public static int[] cola(int[] a) {
+    if (a.length == 0) {
+      int[] aux = {};
+      return aux;
+    }
+    int r = repeticionesDelPrimero(a);
+    int[] c = new int[a.length - r];
+    for (int i = r; i < a.length; i++) {
+      c[i - r] = a[i];
+    }
+    return c;
   }
 
 }
