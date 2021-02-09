@@ -32,38 +32,36 @@ public class Ejercicio18AlternanciaNumeros {
     System.out.println("│\n└────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘");
 
     //Clasificación de los números
-
-    int indiceNumerosMenores = 0;
-    int indiceNumerosMayores = 0;
+    int contadorNumerosMenores = 0;
+    int contadorNumerosMayores = 0;
     int[] numerosMenores = new int[10];
     int[] numerosMayores = new int[10];
 
     for (int i = 0; i < 10; i++) {
       if (numeroEnteroAletorio[i] <= 100) {
-        numerosMenores[indiceNumerosMenores++] = numeroEnteroAletorio[i];
+        numerosMenores[contadorNumerosMenores++] = numeroEnteroAletorio[i];
       } else {
-        numerosMayores[indiceNumerosMayores++] = numeroEnteroAletorio[i];
+        numerosMayores[contadorNumerosMayores++] = numeroEnteroAletorio[i];
       }
-      
     }
-    
-    int[] numerosIntercalados = new int[10];
-    int indiceMenoresOrganizaos = 0;
-    int indiceMayoresOrganizados = 0;
+
+    int[] arrayResultado = new int[10];
+    int menoresColocados = 0;
+    int mayoresColocados = 0;
     int j = 0;
-    
-    do {  
-      
-      if (indiceMenoresOrganizaos < indiceNumerosMenores) {
-        numerosIntercalados[j++] = numerosMenores[indiceMenoresOrganizaos++];
+
+    do {
+
+      if (menoresColocados < contadorNumerosMenores) {
+        arrayResultado[j++] = numerosMenores[menoresColocados++];
       }
-      
-      if (indiceMayoresOrganizados < indiceNumerosMayores) {
-        numerosIntercalados[j++] = numerosMayores[indiceMayoresOrganizados++];
+
+      if (mayoresColocados < contadorNumerosMayores) {
+        arrayResultado[j++] = numerosMayores[mayoresColocados++];
       }
-      
+
     } while (j < 10);
-    
+
     System.out.println("Array Resultado");
 
     System.out.println("\n┌────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐");
@@ -73,8 +71,8 @@ public class Ejercicio18AlternanciaNumeros {
     }
     System.out.println("│\n├────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤");
     System.out.print("│ Valor  ");
-    for (int n : numerosIntercalados) {
-      System.out.printf("│%5d", n);
+    for (int a : arrayResultado) {
+      System.out.printf("│%5d", a);
     }
     System.out.println("│\n└────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘");
 
