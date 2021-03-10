@@ -13,9 +13,8 @@ public class Perro extends Mamifero {
 
   private String raza = "";
 
-  public Perro(Sexo s, String r) {
+  public Perro(Sexo s) {
     super(s);
-    this.raza = r;
   }
 
   public void ladra() {

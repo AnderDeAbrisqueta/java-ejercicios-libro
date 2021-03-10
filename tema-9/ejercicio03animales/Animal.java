@@ -11,16 +11,23 @@ package ejercicio03animales;
  */
 public abstract class Animal {
 
-  private String sexo ="";
- 
-  public Animal(String s) {
-    this.sexo = s;
+  private Sexo sexo;
+
+  public Animal() {
+    this.sexo = sexo;
   }
 
-  public String getSexo() {
+  public Animal(Sexo sexo) {
+    this.sexo = sexo;
+  }
+
+  public Sexo getSexo() {
     return sexo;
   }
-
+  
+  public enum Sexo {
+    MACHO, HEMBRA;
+  }
 
   public void duerme() {
     System.out.println("Zzzzzzz");

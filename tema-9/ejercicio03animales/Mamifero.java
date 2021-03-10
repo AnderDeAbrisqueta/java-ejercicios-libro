@@ -30,4 +30,8 @@ public class Mamifero extends Animal {
   public void cuidaCrias() {
     System.out.println("Estoy cuidando mis crias");
   }
+  
+  public void anda() {
+    System.out.println("Estoy andando");
+  }
 }
